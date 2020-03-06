@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Kanavapaketti</title>
+        <style type="text/css">
+        
+label {
+	display: block;
+	width: 7em;
+	float: left;
+} 
+</style>
+</head>
+<body>
+	<h3>Kanavapaketin hintalaskuri</h3>
+
+	<form>
+		<p><label>Paketin hinta: </label> 
+            <input type="text" id="hinta" size="4"></p>
+        <p><label>Määräaika: </label>
+            <input type="text" id="kuukaudet" size="3" placeholder="kk"></p>
+		<input type="button" value="Laske kokonaishinta" onclick="laskeKokonaishinta()">
+	</form>
+	<div id="vastaus"></div>
+
+	<script type="text/javascript">
+		function laskeKokonaishinta() {
+			var hinta = document.getElementById("hinta").value;
+            var kuukaudet = document.getElementById("kuukaudet").value;
+			var vastaus = hinta * kuukaudet;
+			document.getElementById("vastaus").innerHTML = "<p>Kanavapaketin hinta on " +
+					vastaus.toFixed(2) + " euroa.</p>";
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Mökkireissun vuokrakustannukset</title>
+</head>
+    <style type="text/css">
+        
+label {
+	display: block;
+	width: 7em;
+	float: left;
+} 
+</style>
+<body>
+	<h3>Vuokrakustannukset per osallistuja</h3>
+
+	<form>
+		<p><label>Vuokra: </label> 
+            <input type="text" id="vuokra" size="3"></p>
+        <p><label>Osallistujat: </label>
+            <input type="text" id="osallistujat" size="3"></p>
+        <p><input type="button" value="Laske vuokra" onclick="laskeVuokrahlo()"></p>
+	</form>
+	<div id="vastaus"></div>
+
+	<script type="text/javascript">
+		function laskeVuokrahlo() {
+			var vuokra = document.getElementById("vuokra").value;
+            var osallistujat = document.getElementById("osallistujat").value;
+			var vastaus = vuokra / osallistujat;
+			document.getElementById("vastaus").innerHTML = "<p>Vuokran osuus per henkilö on " +
+					vastaus.toFixed(2) + " euroa.</p>";
+		}
+	</script>
+</body>
+</html>

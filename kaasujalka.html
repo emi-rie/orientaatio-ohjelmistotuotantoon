@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Liian painava kaasujalka</title>
+        <style type="text/css">
+        
+label {
+	display: block;
+	width: 7em;
+	float: left;
+} 
+</style>
+</head>
+<body>
+	<h3>Päiväsakkolaskuri</h3>
+
+	<form>
+		<label>Nettotulot: </label> 
+		<input type="text" id="nettotulot" size="5">
+        <p><input type="button" value="Laske päiväsakko" onclick="laskePaivasakko()"></p>
+	</form>
+	<div id="vastaus"></div>
+
+	<script type="text/javascript">
+		function laskePaivasakko() {
+			var nettotulot = document.getElementById("nettotulot").value;
+			var vastaus = (nettotulot - 255)/60;
+			document.getElementById("vastaus").innerHTML = "<p>Päiväsakko on " +
+					vastaus.toFixed(2) + " euroa. </p>";
+		}
+	</script>
+</body>
+</html>

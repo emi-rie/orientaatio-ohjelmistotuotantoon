@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Mökkireissun bensat</title>
+</head>
+    <style type="text/css">
+        
+label {
+	display: block;
+	width: 7em;
+	float: left;
+        } 
+</style>
+<body>
+	<h3>Reissubensalaskuri</h3>
+
+	<form>
+		<p><label>Kilometrit: </label> 
+            <input type="text" id="kilometrit" size="3"></p>
+        <p><label>Kulutus: </label>
+            <input type="text" id="kulutus" size="3"></p>
+        <p><label>Litrahinta: </label> 
+            <input type="text" id="litrahinta" size="3"></p>
+        <p><label>Kyytiläiset: </label>
+            <input type="text" id="kyytilaiset" size="3"></p>
+        <p><input type="button" value="Laske kustannukset" onclick="laskeKustannus()"></p>
+	</form>
+	<div id="vastaus"></div>
+
+	<script type="text/javascript">
+		function laskeKustannus() {
+			var kilometrit = document.getElementById("kilometrit").value;
+            var kulutus = document.getElementById("kulutus").value;
+            var litrahinta = document.getElementById("litrahinta").value;
+            var kyytilaiset = document.getElementById("kyytilaiset").value;
+
+            var kustannus = kulutus / 100.0 * litrahinta * kilometrit / kyytilaiset;
+            
+			document.getElementById("vastaus").innerHTML = "<p>Polttoainekustannukset per henkilö: " +
+					kustannus.toFixed(2) + " euroa</p>";
+		}
+	</script>
+</body>
+</html>
