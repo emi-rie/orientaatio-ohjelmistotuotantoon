@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Painoindeksi</title>
+
+</head>
+<body>
+	<h3>Laske painoindeksi</h3>
+
+	<form>
+		<p><label>Pituus:</label> 
+            <input type="text" id="pituus" size="3"> </p>
+        <p><label>Paino:</label> 
+            <input type="text" id="paino" size="3"> </p>
+		<input type="button" value="Laske painoindeksi" onclick="laskePainoindeksi()">
+	</form>
+
+	<div id="vastaus"></div>
+
+	<script type="text/javascript">
+		function laskePainoindeksi() {
+			var pituus = document.getElementById("pituus").value;
+            var paino = document.getElementById("paino").value;
+			var painoindeksi = paino / (pituus / 100.0 * pituus / 100.0);
+            var teksti;
+
+			if (painoindeksi < 18.5) {
+				teksti = "Painoindeksisi on " +
+						painoindeksi.toFixed(2) + " - alipaino.";
+			} else if (painoindeksi < 25.0) {
+                teksti = "Painoindeksisi on " +
+						painoindeksi.toFixed(2) + " - normaali.";
+            } else {
+                teksti = "Painoindeksisi on " +
+						painoindeksi.toFixed(2) + " - ylipaino.";
+            }
+            
+			document.getElementById("vastaus").innerHTML = "<p>" + teksti + "</p>";
+		}
+	</script>
+</body>
+</html>

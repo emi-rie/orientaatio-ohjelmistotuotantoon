@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Välityspalkkio</title>
+
+</head>
+<body>
+	<h3>Laske asunnon välityspalkkio</h3>
+
+	<form>
+		<label>Myyntihinta:</label> 
+		<input type="text" id="myyntihinta" size="4"> 
+		<input type="button" value="Laske palkkio" onclick="laskePalkkio()">
+	</form>
+
+	<div id="vastaus"></div>
+
+	<script type="text/javascript">
+		function laskePalkkio() {
+			var myyntihinta = document.getElementById("myyntihinta").value;
+			var palkkio = myyntihinta * (3.44 / 100);
+
+			if (palkkio <= 2400) {
+				palkkio = 2400;
+			}
+            
+			document.getElementById("vastaus").innerHTML = "<p>Myyntipalkkio on " +
+					palkkio.toFixed(2) + " euroa.</p>";
+		}
+	</script>
+</body>
+</html>
