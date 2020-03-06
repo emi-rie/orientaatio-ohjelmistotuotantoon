@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Sää Helsingissä</title>
+</head>
+<body> 
+	<h3>Helsinki</h3>
+
+	<div id="vastaus"></div>
+
+	<script type="text/javascript">
+	
+	function haeHelsinkidata() {
+		fetch("http://api.openweathermap.org/data/2.5/weather?lang=fi&q=helsinki&units=metric&APPID=0a9d790d70f246955746610db686af4a")
+			// Kun saadaan vastaus, muunnetaan se JSON muotoon
+			.then(function (response) {
+				return response.json();
+			})
+			// Muunnettu JSON käsitellään eli tiedot näytetään HTML sivulla
+			.then(function (responseJson) {
+				document.getElementById("vastaus").innerHTML = 
+                "<p>" + responseJson.weather[0].description + "<br>" 
+                + "Lämpötila: " + responseJson.main.temp + " C<br>" 
+                + "Tuuli: " + responseJson.wind.speed + " m/s <br>" 
+                + "Pilvisyys: " + responseJson.clouds.all + " %</p>";
+			})
+			// Jos tuli jokin virhe
+			.catch(function (error) {
+				console.error(error);
+				document.getElementById("vastaus").innerHTML = "<p>Koodauksen onnea<br >-Sirpa-</p>";
+			})
+	}
+		
+	// Jotta funktio suoritetaan, sitä on kutsuttava
+	haeHelsinkidata();
+	</script>
+</body>
+</html>

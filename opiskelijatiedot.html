@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Opiskelijatiedot</title>
+
+</head>
+<body>
+	<h3>Opiskelijatiedot</h3>
+
+	<div id="vastaus"></div>
+
+	<script type="text/javascript">
+	var tiedot = 
+	{
+        "tunnus" : "123456",
+        "etunimi": "Emmi",
+        "sukunimi": "Venho",
+        "lahiosoite" : "Zanseninkuja 2 a 20",
+        "postinumero" : "02600",
+        "postitoimipaikka" : "Espoo",
+	};
+ 	
+	function naytaTiedot() {
+			var teksti = "Tunnus: " + tiedot.tunnus + "<br>";
+			teksti = teksti + "Nimi: " + tiedot.sukunimi + " " + tiedot.etunimi + "<br>";
+			teksti = teksti + "Osoite: " + tiedot.lahiosoite + " " + tiedot.postinumero + " " + tiedot.postitoimipaikka + "<br>";
+
+			document.getElementById("vastaus").innerHTML = "<p>" + teksti + "</p>";
+	}
+
+	naytaTiedot();
+	</script>
+</body>
+</html>
