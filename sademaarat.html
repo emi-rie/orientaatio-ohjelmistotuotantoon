@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Vuosittainen sademäärä</title>
+
+</head>
+<body>
+	<h3>Helsingin vuotuinen sademäärä</h3>
+	
+	<div id="vastaus"></div>
+
+	<script type="text/javascript">
+		function laskeSademaara() {
+			var sademaarat = [47.0,36.6,34.7,37.0,41.9,47.5,61.7,74.8,65.4,69.7,66.1,54.6];
+			var summa = 0;
+            for (var i = 0; i < sademaarat.length; i++) {
+                summa = summa + sademaarat[i]}
+
+
+			
+			document.getElementById("vastaus").innerHTML =  "<p>Helsingin sademäärä vuodessa on " + summa.toFixed(1) + " mm.</p>";
+		}
+		
+		laskeSademaara();
+	</script>
+</body>
+</html>
