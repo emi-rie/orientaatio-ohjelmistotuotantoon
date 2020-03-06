@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Työpaikat</title>
+<!--
+Ohjelma listaa JSON-muodossa olevan sananlaskun
+ -->
+</head>
+<body> 
+	<h3>Työpaikat</h3>
+
+	<div id="vastaus"></div>
+
+	<script type="text/javascript">
+	
+	function haeTyopaikat() {
+		// Pyydetään JSON fetch komennolla
+		fetch("http://gis.vantaa.fi/rest/tyopaikat/v1/Opetusala")
+			// Muunnetaan vastaus JSON muotoon
+			.then(function (response) {
+				response.json();
+			})
+			// Käsitellään muunnettu (eli JSON muotoinen) vastaus
+			.then(function (responseJson) {
+				// Kutsutaan funktioita, joka näyttää tiedot
+				listaaTyopaikat(responseJson);
+			})
+			// Jos tuli jokin virhe
+			.catch(function (error) {
+				console.error(error);
+				document.getElementById("vastaus").innerHTML = "<p>Työpaikkoja ei pystytä hakemaan</p>";
+			})
+	}
+		
+	// Funktio näyttää JSON:lla haetut tiedot
+	function listaaTyopaikat(tyopaikat) {
+		var teksti = "";
+		for(var i = 0; i < tyopaikat.length; i++) {
+			teksti = teksti + "<p><b>" + tyopaikat[i].tyotehtava + 
+			"</b><br>Osoite: " + tyopaikat[i].osoite + 
+			"<br>Haku päättyy: " + tyopaikat[i].haku_paattyy_pvm + "</p>"
+		}
+				
+		document.getElementById("vastaus").innerHTML = teksti;
+	}
+		
+	// JSON:in hakevaa funktiota on kutsuttava, jotta haku tehdään
+	haeTyopaikat();
+	</script>
+</body>
+</html>

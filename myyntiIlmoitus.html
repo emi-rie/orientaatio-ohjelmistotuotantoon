@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Myynti-ilmoitus</title>
+<!-- 
+Näytä asuntomyynti-ilmoitus.
+ -->
+</head>
+<body>
+	<h3>Myynti-ilmoitus</h3>
+
+	<div id="vastaus"></div>
+
+	<script type="text/javascript">
+	var asunto = {
+			"tyyppi": "kerrostalo",
+			"kunta" : "Espoo",
+			"rakennusvuosi" : 1974,
+			"osoite" :" Puosunrinne 3 B, 02320 ESPOO",
+			"kuvaus" : "Reilun kokoinen pikkukoti Kivenlahdesta. Rauhallinen sijainti ja hyvä pohjaratkaisu. Keittiöön mahtuu ruokapöytä.",
+			"hinta" : {"tyyppi" : "velaton", "arvo" : 109838},
+			"pinta_ala" : 34.5,
+			"vapautuminen" : "Heti",
+			"remontit" : [
+				{"vuosi" : 1995, "kuvaus" : "Patteritermostaatit uusittu"},
+				{"vuosi" : 1995, "kuvaus" : "ikkunamaalauksia"},
+				{"vuosi" : 2008, "kuvaus" : "B ja C talon kylmävesirunkolinja uusittu"},
+				{"vuosi" : 2011, "kuvaus" : "ulkosivun ja parvekkeiden uusiminen"}
+			]
+		}; 
+	
+		function listaa() {
+			var teksti = "Tyyppi: " + asunto.tyyppi + "<br>";
+			teksti = teksti + "Rakennusvuosi: " + asunto.rakennusvuosi + "<br>";
+			teksti = teksti + "Osoite: " + asunto.osoite + "<br>";
+			teksti = teksti + "Kuvaus: " + asunto.kuvaus + "<br>";
+			teksti = teksti + "Hinta: " + asunto.hinta.arvo + " " + asunto.hinta.tyyppi + "<br>";
+			teksti = teksti + "Remontit: <br>";
+			
+			for (var i = 0; i < asunto.remontit.length; i++) {
+				teksti = teksti + asunto.remontit[i].vuosi + " " + asunto.remontit[i].kuvaus + "<br>";
+			}
+
+			// Vastauksen kirjoittaminen html-sivulle
+			document.getElementById("vastaus").innerHTML = "<p>" + teksti + "</p>";
+		}
+		
+		listaa();
+	</script>
+</body>
+</html>

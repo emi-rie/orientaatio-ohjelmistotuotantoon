@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ajo</title>
+<!-- 
+Näytä yhden objektin
+ -->
+</head>
+<body>
+	<h3>Ajo</h3>
+
+	<div id="vastaus"></div>
+
+	<script type="text/javascript">
+	var ajo = 
+	{
+        "rekisterinro" : "XYZ-123",
+        "etunimi": "Risto",
+        "sukunimi": "Reipas",
+        "alku" : {"lukema" : 32500, "paiva" : "2015-10-28",  "kello" : "13:30", "paikka" : "Ratapihantie 13, Helsinki"},
+        "loppu" : {"lukema" : 32510, "paiva" : "2015-10-28",  "kello" : "13:50", "paikka" : "Hietakummuntie 1, Helsinki"},
+        "kerroMatka" : function() {
+            return (this.loppu.lukema - this.alku.lukema);
+        }
+	};
+ 	
+	function listaa() {
+			var teksti = "Nimi: " + ajo.sukunimi + " " + ajo.etunimi + "<br>";
+			teksti = teksti + "Rekno: " + ajo.rekisterinro + "<br>";
+			teksti = teksti + "Mistä: " + ajo.alku.paikka + "<br>";
+			teksti = teksti + "Mihin: " + ajo.loppu.paikka + "<br>";
+			
+			teksti = teksti + "Kilometrit: " + ajo.kerroMatka() + " km";
+
+			// Vastauksen kirjoittaminen html-sivulle
+			document.getElementById("vastaus").innerHTML = "<p>" + teksti + "</p>";
+	}
+
+	listaa();
+	</script>
+</body>
+</html>
