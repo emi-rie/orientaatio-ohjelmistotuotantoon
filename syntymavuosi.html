@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Syntymävuosi</title>
+</head>
+    
+<body>
+	<h3>Laske ikäsi</h3>
+
+	<form>
+		<p>
+			<label>Syntymävuosi: </label> 
+            <input type="text" id="syntymavuosi">
+		</p>
+		<p>
+			<input type="button" value="Kerro ikä" onclick="kerroIka()">
+		</p>
+	</form>
+
+	<div id="vastaus"></div>
+ 
+	<script type="text/javascript">
+	
+		function kerroIka() {
+			var syntymavuosi = document.getElementById("syntymavuosi").value;
+            var tanaan = new Date();
+            var vuosi = tanaan.getFullYear();
+            
+            var ikasi = vuosi - syntymavuosi;
+            
+            if (syntymavuosi > 2019) {
+                document.getElementById("vastaus").innerHTML = "<p>Syntymävuotesi ei voi olla tulevaisuudessa.</p>";
+            }
+            
+            else {
+               
+            document.getElementById("vastaus").innerHTML = "<p>Ikäsi: " + ikasi + "</p>";
+		}
+        
+        }
+        
+    
+	</script>
+</body>
+</html>

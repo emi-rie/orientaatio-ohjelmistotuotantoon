@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Merkkijonon muuttelua</title>
+</head>
+    
+<body>
+	<h3>Nimi</h3>
+
+	<form>
+		<p>
+			<label>Nimi: </label> 
+            <input type="text" id="nimi">
+		</p>
+		<p>
+			<input type="button" value="Näytä" onclick="naytaTiedot()">
+		</p>
+	</form>
+
+	<div id="vastaus"></div>
+ 
+	<script type="text/javascript">
+	
+		function naytaTiedot() {
+			var nimiSuurella = document.getElementById("nimi").value;
+            var nimiPienella = document.getElementById("nimi").value;
+            var nimenPituus = document.getElementById("nimi").value;
+            var nimenEka = document.getElementById("nimi").value;
+            var nimenEkat = document.getElementById("nimi").value;
+            
+			nimiSuurella = nimiSuurella.trim();
+            nimiPienella = nimiPienella.trim();
+            nimenPituus = nimenPituus.trim();
+            nimenEka = nimenEka.trim();
+            nimenEkat = nimenEkat.trim();
+            
+			nimiSuurella = nimiSuurella.toUpperCase();
+            nimiPienella = nimiPienella.toLowerCase();
+            nimenPituus = nimenPituus.length;
+            nimenEka = nimenEka.charAt(0);
+            nimenEkat = nimenEkat.substr(0, 3);
+
+			document.getElementById("vastaus").innerHTML = "<p>Nimi suurella: " + nimiSuurella + "</p>" + "<p>Nimi pienellä: " + nimiPienella + "</p>" + "<p>Nimen pituus: " + nimenPituus + " merkkiä.</p>" + "<p>Ensimmäinen merkki: " + nimenEka + "</p>" + "<p>3 ensimmäistä merkkiä: " + nimenEkat + "</p>";
+		}
+	</script>
+</body>
+</html>
