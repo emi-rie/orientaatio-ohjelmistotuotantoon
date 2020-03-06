@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Mökkiläisten painonpudotus</title>
+</head>
+<body>
+	<h3>Painonpudotus:</h3>
+    <form>
+        <p>
+        <label>Lähtöpaino:</label>
+        <input type="text" id="lahtopaino" size="3">
+        </p>
+        <input type="button" value="Näytä tavoitepainot" onclick="naytaTavoitepainot()">
+    </form>
+	
+	<div id="vastaus"></div>
+	
+	<script type="text/javascript">
+        
+        function naytaTavoitepainot(){
+        
+        var paino = document.getElementById("lahtopaino").value;
+        var painonlasku = paino * 0.1 / 7;
+        var teksti = "";
+        
+        for (var i = 1; i <= 7; i++) {
+            paino = paino - painonlasku;
+            teksti = teksti + i + ". viikon jälkeen " + paino.toFixed(1) + "<br>";
+        }
+		
+        document.getElementById("vastaus").innerHTML = "<p>" + teksti + "</p>";
+        }
+	</script>
+</body>
+</html>

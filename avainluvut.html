@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Avainluvut</title>
+</head>
+<body>
+	<h3>Sata avainlukua:</h3>
+	
+	<div id="vastaus"></div>
+	
+	<script type="text/javascript">
+        var teksti = ""
+        var numero
+        
+        for (var i = 1; i <= 100; i++) {
+            numero = Math.round((Math.random() * 9998) + 1);
+            teksti = teksti + numero + " "
+            if (i % 10 == 0)
+            teksti = teksti + "<br>"
+        }
+		
+        document.getElementById("vastaus").innerHTML = teksti;
+	</script>
+</body>
+</html>
